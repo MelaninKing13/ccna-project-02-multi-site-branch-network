@@ -113,7 +113,7 @@ Authentication credentials were intentionally removed from the public configurat
 
 The following test demonstrates secure router management from HQ across the routed WAN connection to Branch A.
 
-![Remote SSH from HQ to Branch A](Screenshots/07_HQ_Remote_SSH_to_Branch-A.png)
+![Remote SSH from HQ to Branch A](Screenshots/07_HQ_Remote_SSH_to_Branch-A_and_Branch-B.png)
 
 ## Connectivity Testing
 
