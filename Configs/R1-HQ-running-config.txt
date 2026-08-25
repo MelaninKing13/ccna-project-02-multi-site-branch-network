@@ -1,0 +1,99 @@
+R1-HQ#show running-config
+Building configuration...
+
+Current configuration : 1174 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname R1-HQ
+!
+!
+! Authentication creditials removed from public portfolio
+enable secret <REDACTED>
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+username netadmin privilege 15 secret <REDACTED>
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+no ip domain-lookup
+ip domain-name ellis.local
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ description HQ LAN
+ ip address 192.168.10.1 255.255.255.0
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ description WAN TO R2-BRANCH-A
+ ip address 10.0.0.1 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ description WAN TO R3-BRANCH-B
+ ip address 10.0.0.5 255.255.255.252
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+ip route 192.168.20.0 255.255.255.0 10.0.0.2 
+ip route 192.168.30.0 255.255.255.0 10.0.0.6 
+!
+ip flow-export version 9
+!
+!
+!
+banner motd ^CAUTHORIZED ACCESS ONLY^C
+!
+!
+!
+!
+line con 0
+ logging synchronous
+!
+line aux 0
+!
+line vty 0 4
+ login local
+ transport input ssh
+!
+!
+!
+end
