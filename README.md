@@ -12,7 +12,7 @@ The completed environment provides end-to-end communication between all three LA
 
 ## Final Topology
 
-![Final operational multi-site topology](screenshots/11_Final_Operational_Topology.png)
+![Final operational multi-site topology](Screenshots/11_Final_Operational_Topology.png)
 
 ## Project Objectives
 
@@ -81,15 +81,15 @@ The completed environment provides end-to-end communication between all three LA
 
 #### R1-HQ
 
-![R1-HQ routing table](screenshots/01_R1-HQ_Routing_Table.png)
+![R1-HQ routing table](Screenshots/01_R1-HQ_Routing_Table.png)
 
 #### R2-BRANCH-A
 
-![R2 Branch A routing table](screenshots/02_R2-Branch-A_Routing_Table.png)
+![R2 Branch A routing table](Screenshots/02_R2-Branch-A_Routing_Table.png)
 
 #### R3-BRANCH-B
 
-![R3 Branch B routing table](screenshots/03_R3-Branch-B_Routing_Table.png)
+![R3 Branch B routing table](Screenshots/03_R3-Branch-B_Routing_Table.png)
 
 ## Secure Remote Management
 
@@ -107,13 +107,13 @@ Authentication credentials were intentionally removed from the public configurat
 
 ### Local HQ SSH Verification
 
-![Secure SSH access to R1-HQ](screenshots/06_R1-HQ_Secure_SSH_Access.png)
+![Secure SSH access to R1-HQ](Screenshots/06_R1-HQ_Secure_SSH_Access.png)
 
 ### Cross-Site SSH Verification
 
 The following test demonstrates secure router management from HQ across the routed WAN connection to Branch A.
 
-![Remote SSH from HQ to Branch A](screenshots/07_HQ_Remote_SSH_to_Branch-A.png)
+![Remote SSH from HQ to Branch A](Screenshots/07_HQ_Remote_SSH_to_Branch-A.png)
 
 ## Connectivity Testing
 
@@ -121,13 +121,13 @@ The following test demonstrates secure router management from HQ across the rout
 
 HQ-PC1 successfully reached endpoint devices in both branch networks with zero packet loss.
 
-![HQ connectivity to both branches](screenshots/05_HQ_to_Both_Branches_Ping_Test.png)
+![HQ connectivity to both branches](Screenshots/05_HQ_to_Both_Branches_Ping_Test.png)
 
 ### Cross-Site Traceroute
 
 A traceroute from Branch A to Branch B confirmed that traffic traversed R2-BRANCH-A, R1-HQ, and R3-BRANCH-B before reaching the destination endpoint.
 
-![Branch A to Branch B traceroute](screenshots/04_Branch-A_to_Branch-B_Traceroute.png)
+![Branch A to Branch B traceroute](Screenshots/04_Branch-A_to_Branch-B_Traceroute.png)
 
 ## Troubleshooting Demonstration
 
@@ -135,13 +135,13 @@ A traceroute from Branch A to Branch B confirmed that traffic traversed R2-BRANC
 
 Branch A retained connectivity to HQ but could no longer reach Branch B. This isolated the problem to a specific remote destination rather than a complete LAN or WAN outage.
 
-![Isolated Branch B connectivity failure](screenshots/08_Troubleshooting_Isolated_Branch_Failure.png)
+![Isolated Branch B connectivity failure](Screenshots/08_Troubleshooting_Isolated_Branch_Failure.png)
 
 ### Diagnosis
 
 R2-BRANCH-A interfaces remained operational, and its WAN next hop at `10.0.0.1` was reachable. Examination of the routing table showed that `192.168.30.0/24` was missing, identifying the absent static route as the cause.
 
-![Missing static route diagnosis](screenshots/09_Troubleshooting_Missing_Static_Route.png)
+![Missing static route diagnosis](Screenshots/09_Troubleshooting_Missing_Static_Route.png)
 
 ### Resolution
 
@@ -153,13 +153,13 @@ ip route 192.168.30.0 255.255.255.0 10.0.0.1
 
 After the repair, Branch A regained full connectivity to Branch B with zero packet loss.
 
-![Connectivity restored after route repair](screenshots/10_Troubleshooting_Connectivity_Restored.png)
+![Connectivity restored after route repair](Screenshots/10_Troubleshooting_Connectivity_Restored.png)
 
 ## Configuration Files
 
-- [R1-HQ running configuration](configs/R1-HQ-running-config.txt)
-- [R2-BRANCH-A running configuration](configs/R2-BRANCH-A-running-config.txt)
-- [R3-BRANCH-B running configuration](configs/R3-BRANCH-B-running-config.txt)
+- [R1-HQ running configuration](Configs/R1-HQ-running-config.txt)
+- [R2-BRANCH-A running configuration](Configs/R2-BRANCH-A-running-config.txt)
+- [R3-BRANCH-B running configuration](Configs/R3-BRANCH-B-running-config.txt)
 
 ## Packet Tracer File
 
